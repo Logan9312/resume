@@ -1,0 +1,216 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Logan Travis} \\ \vspace{1pt}
+    \small 780-887-3498 $|$ \href{mailto:lgntravis@gmail.com}{\underline{lgntravis@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/logan-travis-854227206/}{\underline{LinkedIn}} $|$
+    \href{https://github.com/Logan9312}{\underline{GitHub}} $|$
+    \href{https://gitlab.com/logan9312}{\underline{GitLab}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Alberta}{Edmonton, Alberta}
+      {Computing Science}{Sept. 2020 -- Present}
+    %\resumeSubheading
+    %  {University of Michigan}{Remote}
+    %  {Python for Everybody Specialization on Coursera}{May 17, 2022}
+    %\resumeSubheading
+    %  {University of California, Irvine}{Remote}
+    %  {Programming with Google Go Specialization on Coursera}{August 20, 2021}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Chamber Platform Coordinator}{Apr. 2022 -- Present}
+      {Alberta Chambers of Commerce}{Remote}
+      \resumeItemListStart
+        \resumeItem{Implemented automated data collection with Python to generating reports into CSV files}
+        \resumeItem{Provided technical support for ChamberMarket.ca to assist Users, Businesses and Chambers}
+        \resumeItem{Used Alida to survey Chambers across the province and collect data on their preferred implementation of a new CRM system for chambers.}
+        \resumeItem{Coordinated with the dev team to ensure that the new CRM system is implemented in a way that is beneficial to chambers.}
+        \resumeItem{Coordinate with value-add partners such as Talinity, Harvard Media, Nine10 Marketing and others to gather feedback and help integrate with the site and explore potential benefits.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {ACC Chamber Market Coordinator}{Oct. 2021 - Apr. 2022}
+      {Leduc, Nisku \& Wetaskiwin Regional Chamber of Commerce}{Remote}
+      \resumeItemListStart
+        \resumeItem{Used Go with UniDoc to sanitize and aggregate data from a Word template submitted by 60+ chambers into an excel file with combined statistics.}
+        \resumeItem{Used Go with UniDoc to maintain reports on Vendor onboarding status on ChamberMarket.ca}
+        \resumeItem{Provided technical support for ChamberMarket.ca to assist Users, Businesses and Chambers}
+        \resumeItem{Created a manual for Vendors and Chambers on ChamberMarket.ca}
+        \resumeItem{Supported the Leduc Chamber in recruiting vendors and businesses to join ChamberMarket.ca}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Prize Bot} $|$ \emph{Go, DiscordGo, GitLab, GORM, AWS, PostgreSQL, Docker}}{April 2021 -- Present}
+          \resumeItemListStart
+            \resumeItem{Developed a discord bot using discordgo to manage auctions and giveaways for gaming communities}
+            \resumeItem{Created an integrated tickets system to allow users to claim and manage events/prizes through the bot}
+            \resumeItem{Implemented an AWS RDS (PostgreSQL) database to store user and server information. }
+            \resumeItem{Used a modular approach to coordinate events supported by the bot (Auctions, Giveaways, Shop, etc.)}
+            \resumeItem{Used Gorilla/Mux to handle routing of http integrations such as a status check endpoint.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Server Master (deprecated)} $|$ \emph{Python, DiscordPy, Github Actions, AWS, Nitrado API}}{Spring/Summer 2021}
+          \resumeItemListStart
+            \resumeItem{Developed a bot for managing Nitrado game servers with the ability to stop, restart, ban, whitelist, and track status of the servers.}
+            \resumeItem{Setup github actions to deploy to an AWS ECS Cluster on commit. This also allowed for auto-restart if the bot were to crash.}
+            \resumeItem{Used regex parsing to scan log files at regular intervals and output information to discord including kills, admin commands, and chats.}
+            \resumeItem{Planned to use AWS lambda to assist in parsing and outputting log information}
+          \resumeItemListEnd
+      
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Go, Python, Dart, MATLAB, SQL (Postgres, Sqlite3), JavaScript, HTML/CSS} \\
+     \textbf{Frameworks}{: Flutter, Gorilla, Stripe SDK} \\
+     \textbf{Developer Tools}{: Git (GitHub, GitLab), Github Actions, Docker, Firebase, AWS, VS Code, Visual Studio, Excel,} \\
+     \textbf{Libraries}{: DiscordGo, GORM, DiscordPy, pandas, NumPy, Matplotlib, UniDoc/UniOffice, } \\
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
