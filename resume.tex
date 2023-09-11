@@ -7,6 +7,9 @@
 
 \documentclass[letterpaper,11pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{tgpagella} % or any other font family that supports the shape
+\usepackage{microtype}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -40,6 +43,7 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
+\setlength{\footskip}{4.08003pt}
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
@@ -135,44 +139,6 @@
   \resumeSubHeadingListEnd
 
 
-%-----------EXPERIENCE-----------
-\section{Experience}
-  \resumeSubHeadingListStart
-      
-% -----------Multiple Positions Heading-----------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-
-    \resumeSubheading
-      {Chamber Platform Coordinator}{Apr. 2022 -- Present}
-      {Alberta Chambers of Commerce}{Remote}
-      \resumeItemListStart
-        \resumeItem{Provided technical support for Chamber Market and Chamber Platform.}
-        \resumeItem{Beta tested and implemented new features for Chamber Platform's CRM system.}
-        \resumeItem{Assisted with Chamber and Vendor onboarding}
-        \resumeItem{Used python to aggregate CSV data for surveys and reporting.}
-    \resumeItemListEnd
-
-    \resumeSubheading
-      {ACC Chamber Market Coordinator}{Oct. 2021 - Apr. 2022}
-      {Leduc, Nisku \& Wetaskiwin Regional Chamber of Commerce}{Remote}
-      \resumeItemListStart
-        \resumeItem{Developed a Go-based data aggregation tool using UniDoc for reports from chambers across Alberta}
-        \resumeItem{Maintained vendor onboarding status reports for Chamber Market}
-        \resumeItem{Provided technical support for Chamber Market and Chamber Platform.}
-        \resumeItem{Created documentation for Chamber Market and Chamber Platform.}
-        \resumeItem{Assisted the Chamber in recruiting vendors and businesses to Chamber Market}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
@@ -201,37 +167,63 @@
             \resumeItem{Landing page built with NextJS and deployed on Vercel}
           \resumeItemListEnd
 
-      \resumeProjectHeading
-          {\textbf{Vanquished Gaming Checkout Service} $|$ \emph{Go, JavaScript, SvelteKit, Stripe}}{August 2023}
-          \resumeItemListStart
-            \resumeItem{Developed a checkout integration using Stripe and Discord to handle subscription payments and role management}
-          \resumeItemListEnd
-      
-
       
     \resumeSubHeadingListEnd
 
-%-----------CERTIFICATES-----------
-\section{Certificates}
+%-----------EXPERIENCE-----------
+\section{Experience}
   \resumeSubHeadingListStart
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
     \resumeSubheading
-      {University of Michigan}{Remote}
-      {Python for Everybody Specialization on Coursera}{May 17, 2022}
+    {Software Developer}{Apr. 2023 -- Present}
+    {Freelance}{Remote}
+    \resumeItemListStart
+      \resumeItem{Developed an eCommerce site for a community with over 6000 players using SvelteKit and Stripe.}
+      \resumeItem{Created simple Discord integrations using DiscordGo and Python to help users manage their server more efficiently.}
+    \resumeItemListEnd
+
+
     \resumeSubheading
-      {University of California, Irvine}{Remote}
-      {Programming with Google Go Specialization on Coursera}{August 20, 2021}
+      {Chamber Platform Coordinator}{Apr. 2022 -- Present}
+      {Alberta Chambers of Commerce}{Remote}
+      \resumeItemListStart
+        \resumeItem{Provided technical support for Chamber Market and Chamber Platform with an average response time of less than an hour.}
+        \resumeItem{Beta tested and implemented new features for Chamber Platform's CRM system.}
+        \resumeItem{Assisted with Chamber and Vendor onboarding to ensure a smooth process and improve the process for future clients.}
+        \resumeItem{Used python to aggregate CSV data for surveys and reporting, and automate some daily tasks.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {ACC Chamber Market Coordinator}{Oct. 2021 - Apr. 2022}
+      {Leduc, Nisku \& Wetaskiwin Regional Chamber of Commerce}{Remote}
+      \resumeItemListStart
+        \resumeItem{Developed a Go-based data aggregation tool using UniDoc for reports from chambers across Alberta, saving over 10 hours of manual work per week.}
+        \resumeItem{Maintained vendor onboarding status reports for Chamber Market}
+        \resumeItem{Provided technical support for Chamber Market and Chamber Platform.}
+        \resumeItem{Created documentation for Chamber Market and Chamber Platform.}
+        \resumeItem{Assisted the Chamber in recruiting vendors and businesses to Chamber Market}
+      \resumeItemListEnd
+
   \resumeSubHeadingListEnd
-
-
 %
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Proficient}{: Go, Python, MATLAB, JavaScript} \\
-     \textbf{Familiar}{: NextJS, React, Flutter, Dart, Stripe SDK, SQL, JavaScript, HTML, CSS, R} \\
-     \textbf{Developer Tools}{: GitHub, GitLab, Vercel, Github Actions, Docker, Firebase, AWS (RDS, EC2), VS Code, Visual Studio, Excel, RStudio} \\
-     \textbf{Learning}{: NextJS, Svelte} \\
+     \textbf{Languages}{: Go, Python, C, MATLAB, Typescript, JavaScript, Mojo, Dart, HTML, CSS, SQL, R, C\#} \\
+     \textbf{Libraries}{: Sveltekit, NextJS, React, Flutter, Tailwind}
+     \textbf{Developer Tools}{: AWS, Docker, Vercel, Firebase, Railway, GitHub, GitLab, Github Actions, Excel, RStudio} \\
+     \textbf{Other Skills}{: }
     }}
  \end{itemize}
 
