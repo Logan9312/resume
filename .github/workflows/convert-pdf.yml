@@ -1,0 +1,31 @@
+name: Convert PDF to PNG
+
+on:
+  push:
+    paths:
+      - "**/*.pdf"
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up ImageMagick
+        run: sudo apt-get install imagemagick ghostscript -y
+
+      - name: Convert PDF to PNG
+        run: |
+          for file in $(find . -name '*.pdf'); do
+            output="${file%.pdf}.png"
+            convert -density 300 "$file" -quality 90 "$output"
+          done
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
+          git add *.png
+          git commit -m "Auto-converted PDF to PNG" || echo "No changes to commit"
+          git push
