@@ -17,8 +17,8 @@ jobs:
 
       - name: Configure ImageMagick
         run: |
-          sudo sed -i 's/<policy domain="resource" name="memory" value="256MiB"/>/<policy domain="resource" name="memory" value="2GiB"/>/' /etc/ImageMagick-6/policy.xml
-          sudo sed -i 's/<policy domain="resource" name="disk" value="1GiB"/>/<policy domain="resource" name="disk" value="10GiB"/>/' /etc/ImageMagick-6/policy.xml
+          sudo sed -i 's|<policy domain="resource" name="memory" value="256MiB">|<policy domain="resource" name="memory" value="2GiB">|' /etc/ImageMagick-6/policy.xml
+          sudo sed -i 's|<policy domain="resource" name="disk" value="1GiB">|<policy domain="resource" name="disk" value="10GiB">|' /etc/ImageMagick-6/policy.xml
           sudo mkdir -p /tmp/magick-cache
           export MAGICK_TMPDIR=/tmp/magick-cache
           echo "Configured ImageMagick policies and cache."
