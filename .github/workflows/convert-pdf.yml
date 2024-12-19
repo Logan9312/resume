@@ -15,6 +15,12 @@ jobs:
       - name: Set up ImageMagick
         run: sudo apt-get install imagemagick ghostscript -y
 
+      - name: Update ImageMagick Policy
+        run: |
+          policy_path=$(find /etc -name "policy.xml" 2>/dev/null | head -n 1)
+          echo "Updating policy file at $policy_path"
+          sudo sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/' $policy_path
+
       - name: Convert PDF to PNG
         run: |
           for file in $(find . -name '*.pdf'); do
