@@ -1,3 +1,3 @@
 # resume
 
-![Resume Preview](resume.pdf)
+![Resume Preview](resume.png)
