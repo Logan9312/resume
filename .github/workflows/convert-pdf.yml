@@ -24,7 +24,7 @@ jobs:
 
       - name: Convert PDF to PNG
         run: |
-          convert -density 900 -background white -alpha off resume.pdf -quality 90 Twenty-Seconds-Icons_cv.png
+          convert -density 900 -background white -alpha off resume.pdf -quality 90 resume.png
 
       - name: Commit PNG
         id: commit
@@ -35,7 +35,7 @@ jobs:
           if [ -z "$(git status --porcelain)" ]; then
             echo "::set-output name=push::false"
           else
-            git commit -m "[bot] updated Twenty-Seconds-Icons_cv.png"
+            git commit -m "[bot] updated resume.png"
             echo "::set-output name=push::true"
           fi
         shell: bash
