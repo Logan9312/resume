@@ -2,8 +2,6 @@ name: Convert PDF to PNG
 
 on:
   push:
-    paths:
-      - "**/*.pdf"
 
 jobs:
   build:
@@ -12,19 +10,22 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Ghostscript
-        run: sudo apt install ghostscript -y
-
-      - name: Change ImageMagick Security Policy
+      - name: Install Dependencies
         run: |
-          DQT='"' 
-          SRC="rights=${DQT}none${DQT} pattern=${DQT}PDF${DQT}"
-          RPL="rights=${DQT}read|write${DQT} pattern=${DQT}PDF${DQT}"
-          sudo sed -i "s/$SRC/$RPL/" /etc/ImageMagick-6/policy.xml || echo "Policy not found, skipping."
+          sudo apt update
+          sudo apt install -y ghostscript imagemagick
+
+      - name: Configure ImageMagick
+        run: |
+          sudo sed -i 's/<policy domain="resource" name="memory" value="256MiB"/>/<policy domain="resource" name="memory" value="2GiB"/>/' /etc/ImageMagick-6/policy.xml
+          sudo sed -i 's/<policy domain="resource" name="disk" value="1GiB"/>/<policy domain="resource" name="disk" value="10GiB"/>/' /etc/ImageMagick-6/policy.xml
+          sudo mkdir -p /tmp/magick-cache
+          export MAGICK_TMPDIR=/tmp/magick-cache
+          echo "Configured ImageMagick policies and cache."
 
       - name: Convert PDF to PNG
         run: |
-          convert -density 900 -background white -alpha off resume.pdf -quality 90 resume.png
+          convert -density 300 -background white -alpha off resume.pdf -quality 90 resume.png
 
       - name: Commit PNG
         id: commit
