@@ -6,32 +6,42 @@ on:
       - "**/*.pdf"
 
 jobs:
-  convert:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Set up ImageMagick
-        run: sudo apt-get install imagemagick ghostscript -y
+      - name: Install Ghostscript
+        run: sudo apt install ghostscript -y
 
-      - name: Update ImageMagick Policy
+      - name: Change ImageMagick Security Policy
         run: |
-          policy_path=$(find /etc -name "policy.xml" 2>/dev/null | head -n 1)
-          echo "Updating policy file at $policy_path"
-          sudo sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/' $policy_path
+          DQT='"' 
+          SRC="rights=${DQT}none${DQT} pattern=${DQT}PDF${DQT}"
+          RPL="rights=${DQT}read|write${DQT} pattern=${DQT}PDF${DQT}"
+          sudo sed -i "s/$SRC/$RPL/" /etc/ImageMagick-6/policy.xml || echo "Policy not found, skipping."
 
       - name: Convert PDF to PNG
         run: |
-          for file in $(find . -name '*.pdf'); do
-            output="${file%.pdf}.png"
-            convert -density 300 "$file" -quality 90 "$output"
-          done
+          convert -density 900 -background white -alpha off Twenty-Seconds-Icons_cv.pdf -quality 90 Twenty-Seconds-Icons_cv.png
 
-      - name: Commit changes
+      - name: Commit PNG
+        id: commit
         run: |
-          git config --local user.name "github-actions"
-          git config --local user.email "github-actions@github.com"
-          git add *.png
-          git commit -m "Auto-converted PDF to PNG" || echo "No changes to commit"
-          git push
+          git config --local user.email "action[bot]@github.com"
+          git config --local user.name "github-actions[bot]"
+          git add Twenty-Seconds-Icons_cv.png
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "::set-output name=push::false"
+          else
+            git commit -m "[bot] updated Twenty-Seconds-Icons_cv.png"
+            echo "::set-output name=push::true"
+          fi
+        shell: bash
+
+      - name: Push Commit
+        if: steps.commit.outputs.push == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.SECRET_TOKEN }}
