@@ -1,7 +1,6 @@
 %-------------------------
 % Resume in Latex
 % Author : Jake Gutierrez
-% Based off of: https://github.com/sb2nov/resume
 % License : MIT
 %------------------------
 
@@ -23,15 +22,19 @@
 \usepackage{tabularx}
 \input{glyphtounicode}
 \usepackage{fontawesome}
+\usepackage{svg}
+
+
+% NEW: Needed for inserting images (SVG, PNG, PDF)
+\usepackage{graphicx}
 
 %----------FONT OPTIONS----------
-% sans-serif
+% (Comment out what you aren't using)
 \usepackage[sfdefault]{FiraSans}
 % \usepackage[sfdefault]{roboto}
 % \usepackage[sfdefault]{noto-sans}
 % \usepackage[default]{sourcesanspro}
 
-% serif
 % \usepackage{CormorantGaramond}
 % \usepackage{charter}
 
@@ -40,7 +43,6 @@
     linkcolor=blue, % color of internal links
     urlcolor=blue   % color of external links
 }
-
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -86,7 +88,6 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-
 \newcommand{\resumeSubSubheading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -110,22 +111,20 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{document}
 
 %----------HEADING----------
-
 \begin{center}
   \textbf{\Huge \scshape Logan Travis} \\ \vspace{1pt}  
   \small 
   \faPaperPlane \ \href{mailto:lgntravis@gmail.com}{\underline{lgntravis@gmail.com}} $|$  
   \faLinkedinSquare \ \href{https://www.linkedin.com/in/logantravis/}{\underline{LinkedIn}} $|$  
-  \faGithubSquare \ \href{https://github.com/Logan9312}{\underline{GitHub}} $|$  
-  \faMapMarker \ Alberta, Canada  
+  \faGithubSquare \ \href{https://github.com/Logan9312}{\underline{GitHub}} $|$
+  \faMapMarker \ Alberta, Canada  $|$
+  \raisebox{-1pt}{\includegraphics[height=1em]{maple_leaf.pdf}} Canadian Citizen
 \end{center}
 
 
@@ -153,11 +152,9 @@
     \resumeItem{Worked on \textbf{Leaderboards, Top 250, COD League Hub and Combat Record} for multiple \textbf{Call of Duty} games.}
     \resumeItem{Implemented new design styling in React based on a provided \textbf{Figma} project.}
     \resumeItem{Developed chrome extensions to automate pulling \textbf{i18n} data from an internal dictionary.}
-
   \resumeItemListEnd
   
-
-    \resumeSubheading
+  \resumeSubheading
     {Freelance}{April 2023 -- May 2024}
     {Full-Stack Developer}{Remote}
     \resumeItemListStart
@@ -173,18 +170,13 @@
     \resumeItemListStart
       \resumeItem{Various onboarding/support tasks and developed automatic survey aggregation tools with Go.}
     \resumeItemListEnd
+
   \resumeSubHeadingListEnd
 
   
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
-
-    %  \resumeProjectHeading
-    %   {\textbf{Compiler} (WIP) $|$ \emph{C++}}{}
-    %   \resumeItemListStart
-    %   \resumeItem{Developing a compiler using Cpp using the }
-    % \resumeItemListEnd 
 
       \resumeProjectHeading
         {\textbf{Compiler} $|$ \emph{C++}}{}
@@ -195,7 +187,7 @@
           \resumeItem{Created an additional compiler to target \textbf{RISC-V}, \textbf{X-86} and \textbf{ARM} architectures for vector based calculations.}
         \resumeItemListEnd
         
-        \resumeProjectHeading
+      \resumeProjectHeading
           {\textbf{Prize Bot V2} $|$ \emph{Go} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{Github Link}} {}
           \resumeItemListStart
             \resumeItem{Developed a Discord bot in Go for community events; \textbf{active on 1000+ servers, tracking 440,000+ users.}}
@@ -207,7 +199,7 @@
       \resumeProjectHeading
           {\textbf{Ark Guardian} $|$ \emph{Python}}{}
           \resumeItemListStart
-          \resumeItem{Designed a service in Python for \textbf{tracking 160,000+ players across 1,450+ game servers} that enabled efficient server administration and player management}
+          \resumeItem{Designed a service in Python for \textbf{tracking 160,000+ players across 1,450+ game servers} that enabled efficient server administration and player management.}
           \resumeItem{Refactored codebase to improve performance and resolve memory leaks.}
         \resumeItemListEnd
 
@@ -217,7 +209,7 @@
         \resumeItem{Java Application developed using Android Studio in a team of 6 for creating, browsing, and registering for events.}
         \resumeItem{Used Firebase to securely store images and user data records.}
       \resumeItemListEnd 
- 
+
     \resumeSubHeadingListEnd
 
 %-----------PROGRAMMING SKILLS-----------
@@ -225,9 +217,8 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Languages}{: Go, Python, C, C++, RISC-V, Typescript, JavaScript, Java, Julia, MATLAB, Dart, HTML, CSS, SQL, R } \\
-     \textbf{Frameworks/Libraries}{: SvelteKit, React, React Native, NextJS, Tailwind, HTMX, Flutter, ANTLR4 } \\    }}
+     \textbf{Frameworks/Libraries}{: SvelteKit, React, React Native, NextJS, Tailwind, HTMX, Flutter, ANTLR4 } \\
+    }}
  \end{itemize}
 
-
-%-------------------------------------------
 \end{document}
