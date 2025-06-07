@@ -5,10 +5,18 @@ import (
 	"os/exec"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func main() {
 	app := fiber.New()
+
+	// Configure CORS
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "http://localhost:5173", // Allow requests from your frontend
+		AllowMethods: "GET,OPTIONS",
+		AllowHeaders: "Origin, Content-Type, Accept",
+	}))
 
 	// Route to serve the PDF file directly
 	app.Get("/", func(c *fiber.Ctx) error {
