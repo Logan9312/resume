@@ -38,9 +38,9 @@
 % \usepackage{charter}
 
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue, % color of internal links
-    urlcolor=blue   % color of external links
+  colorlinks=true,
+  linkcolor=blue, % color of internal links
+  urlcolor=blue   % color of external links
 }
 
 \pagestyle{fancy}
@@ -74,41 +74,46 @@
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[1]{
-  \item\small{
+\item\small{
     {#1 \vspace{-2pt}}
   }
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+  \vspace{-2pt}
+\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+\item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+\item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{
+\begin{itemize}[leftmargin=0.15in, label={}]}
+    \newcommand{\resumeSubHeadingListEnd}{
+\end{itemize}}
+\newcommand{\resumeItemListStart}{
+\begin{itemize}}
+    \newcommand{\resumeItemListEnd}{
+\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +163,6 @@
 % \resumeItem{Created dashboard interfaces \textbf{TypeScript}, \textbf{Next.js} and \textbf{React Native} as part of a weekly book club.}
 \resumeItemListEnd
 
-
 \resumeSubheading
 {Freelance}{May 2023 -- May 2024}
 {Full-Stack Developer}{Remote}
@@ -207,7 +211,6 @@
 \resumeItem{Utilized \textbf{Rocket} for the backend server allowing asynchronous connections to run multiple games at once.}
 \resumeItemListEnd
 
-
 % \resumeProjectHeading
 % {\textbf{ScanPal} $|$ \emph{Java, Android Studio, Firebase} $|$ \href{https://www.youtube.com/watch?v=dmA5Nl-ztyk}{Demo}}{}
 % \resumeItemListStart
@@ -216,18 +219,18 @@
 % \resumeItem{Implemented \textbf{CI/CD} pipelines using GitHub Actions, ensuring code quality and automated testing.}
 % \resumeItemListEnd
 
-
 \resumeSubHeadingListEnd
 
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
-  \small{\item{
+    \small{
+    \item{
         \textbf{Languages}{: Golang, Python, C, C++, JavaScript, TypeScript, Rust, Java, HTML/CSS, SQL, RISC-V/ARM/X86} \\
         \textbf{Frameworks/Libraries}{: SvelteKit, React, React Native, Next.js, Tailwind, HTMX, Flutter, ANTLR4, NPM/Bun, Node.js} \\
         \textbf{Relevant Coursework}{: Algorithms, AI \& Machine Learning, Computer Architecture and Assembly, Database Management, Compiler Design, Reinforcement Learning, Operating Systems} \\
         \textbf{Tools}{: Git, Docker, CI/CD, AWS, PostgreSQL, SQLite3, Firebase, Android Studio, UNIX/Linux}
-        }}
+    }}
 \end{itemize}
 
 \end{document}
