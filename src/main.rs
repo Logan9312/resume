@@ -14,14 +14,21 @@ static PNG_DATA: OnceLock<Vec<u8>> = OnceLock::new();
 
 fn init_data() {
     let pdf_bytes = std::fs::read("./resume.pdf").expect("Failed to read resume.pdf");
+    PDF_DATA.set(pdf_bytes.clone()).unwrap();
 
-    // Bind to PDFium library
-    let pdfium = Pdfium::new(
-        Pdfium::bind_to_library("./libpdfium.so")
-            .or_else(|_| Pdfium::bind_to_library("/app/libpdfium.so"))
-            .or_else(|_| Pdfium::bind_to_system_library())
-            .expect("Failed to bind to PDFium"),
-    );
+    // Try to bind to PDFium (may not be available locally)
+    let pdfium_result = Pdfium::bind_to_library("./libpdfium.so")
+        .or_else(|_| Pdfium::bind_to_library("/app/libpdfium.so"))
+        .or_else(|_| Pdfium::bind_to_library("./pdfium.dll"))
+        .or_else(|_| Pdfium::bind_to_system_library());
+
+    let pdfium = match pdfium_result {
+        Ok(bindings) => Pdfium::new(bindings),
+        Err(e) => {
+            println!("PDFium not available, PNG endpoint disabled: {e}");
+            return;
+        }
+    };
 
     let png_bytes = {
         let document = pdfium
@@ -40,11 +47,9 @@ fn init_data() {
             .write_to(&mut buf, ImageFormat::Png)
             .expect("Failed to encode PNG");
         buf.into_inner()
-    }; // document dropped here, releasing borrow on pdf_bytes
+    };
 
-    PDF_DATA.set(pdf_bytes).unwrap();
     PNG_DATA.set(png_bytes).unwrap();
-
     println!("PNG pre-generated successfully");
 }
 
@@ -57,11 +62,14 @@ async fn serve_pdf() -> Response {
 }
 
 async fn serve_png() -> Response {
-    (
-        [(header::CONTENT_TYPE, "image/png")],
-        PNG_DATA.get().unwrap().as_slice(),
-    )
-        .into_response()
+    match PNG_DATA.get() {
+        Some(data) => ([(header::CONTENT_TYPE, "image/png")], data.as_slice()).into_response(),
+        None => (
+            axum::http::StatusCode::SERVICE_UNAVAILABLE,
+            "PNG not available - PDFium not loaded",
+        )
+            .into_response(),
+    }
 }
 
 #[tokio::main]
