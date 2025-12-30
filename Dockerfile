@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Download PDFium binary
+# Download PDFium binary from bblanchon/pdfium-binaries
 RUN curl -L -o pdfium.tgz https://github.com/ArtifexSoftware/pdfium-lib/releases/download/1.1/pdfium-linux-x64-release.tgz \
     && tar -xzf pdfium.tgz \
     && mv lib/libpdfium.so . \
