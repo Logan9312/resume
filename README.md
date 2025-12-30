@@ -2,4 +2,4 @@
 
 ![Resume](resume.png)
 
-[Download PDF](resume.pdf)
+[Resume PDF](resume.pdf)
