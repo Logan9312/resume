@@ -2,4 +2,4 @@
 
 ![Resume](resume.png)
 
-[Resume PDF](resume.pdf)
+<p align="center"><a href="resume.pdf">View Resume PDF</a></p>
