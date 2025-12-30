@@ -23,24 +23,27 @@ fn init_data() {
             .expect("Failed to bind to PDFium"),
     );
 
-    let document = pdfium
-        .load_pdf_from_byte_slice(&pdf_bytes, None)
-        .expect("Failed to load PDF");
+    let png_bytes = {
+        let document = pdfium
+            .load_pdf_from_byte_slice(&pdf_bytes, None)
+            .expect("Failed to load PDF");
 
-    let page = document.pages().get(0).expect("No pages in PDF");
+        let page = document.pages().get(0).expect("No pages in PDF");
 
-    let bitmap = page
-        .render_with_config(&PdfRenderConfig::new().set_target_width(1200))
-        .expect("Failed to render page");
+        let bitmap = page
+            .render_with_config(&PdfRenderConfig::new().set_target_width(1200))
+            .expect("Failed to render page");
 
-    let image = bitmap.as_image();
-    let mut png_bytes = Cursor::new(Vec::new());
-    image
-        .write_to(&mut png_bytes, ImageFormat::Png)
-        .expect("Failed to encode PNG");
+        let image = bitmap.as_image();
+        let mut buf = Cursor::new(Vec::new());
+        image
+            .write_to(&mut buf, ImageFormat::Png)
+            .expect("Failed to encode PNG");
+        buf.into_inner()
+    }; // document dropped here, releasing borrow on pdf_bytes
 
-    PNG_DATA.set(png_bytes.into_inner()).unwrap();
     PDF_DATA.set(pdf_bytes).unwrap();
+    PNG_DATA.set(png_bytes).unwrap();
 
     println!("PNG pre-generated successfully");
 }
