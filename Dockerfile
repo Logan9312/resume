@@ -1,24 +1,41 @@
-# Use Debian-based image for glibc compatibility
-FROM golang:1.23-bookworm
+# Build stage
+FROM rust:1.83-bookworm AS builder
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy Go module files first for dependency caching
-COPY go.mod ./
-COPY go.sum ./
+# Copy manifests first for dependency caching
+COPY Cargo.toml Cargo.lock* ./
 
-# Download and cache Go module dependencies
-RUN go mod download
+# Create dummy src to build dependencies
+RUN mkdir src && echo "fn main() {}" > src/main.rs
+RUN cargo build --release
+RUN rm -rf src
 
-# Copy the rest of the application source code
-COPY . ./
+# Copy actual source and rebuild
+COPY src ./src
+RUN touch src/main.rs && cargo build --release
 
-# Build the application
-RUN go build -o main .
+# Runtime stage
+FROM debian:bookworm-slim
 
-# Expose the port your app will run on
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Download PDFium binary
+RUN curl -L -o pdfium.tgz https://github.com/ArtifexSoftware/pdfium-lib/releases/download/1.1/pdfium-linux-x64-release.tgz \
+    && tar -xzf pdfium.tgz \
+    && mv lib/libpdfium.so . \
+    && rm -rf pdfium.tgz lib include
+
+COPY --from=builder /app/target/release/resume .
+COPY resume.pdf .
+
+ENV LD_LIBRARY_PATH=/app
+
 EXPOSE 3000
 
-# Command to run the application
-CMD ["./main"]
+CMD ["./resume"]

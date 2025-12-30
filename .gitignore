@@ -314,3 +314,6 @@ TSWLatexianTemp*
 # End of https://www.toptal.com/developers/gitignore/api/latex
 
 __latexindent_temp_resume.tex
+
+# Rust
+/target/
