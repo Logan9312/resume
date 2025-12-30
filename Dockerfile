@@ -1,8 +1,8 @@
 # Use the official Go 1.23 Alpine image
 FROM golang:1.23-alpine
 
-# Install system dependencies, including poppler-utils
-RUN apk add --no-cache poppler-utils
+# Install MuPDF and build dependencies for go-fitz
+RUN apk add --no-cache mupdf-dev gcc musl-dev
 
 # Set the working directory inside the container
 WORKDIR /app
