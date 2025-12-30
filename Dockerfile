@@ -11,5 +11,6 @@ WORKDIR /app
 COPY --from=builder /app/server .
 COPY resume.pdf resume.png ./
 
-EXPOSE 3000
+EXPOSE $PORT
+
 CMD ["./server"]
