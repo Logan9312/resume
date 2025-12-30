@@ -146,31 +146,30 @@
 {Jobber}{May 2025 -- Present}
 {Software Engineering Intern}{Edmonton, AB}
 \resumeItemListStart
-\resumeItem{Using \textbf{Ruby, Typescript, and GraphQL} to build new features for the Jobber platform.}
-\resumeItem{Migrated features from a legacy \textbf{Rails} application to a new \textbf{SPA React} application.}
-\resumeItem{Researched and prototyped live \textbf{API} integrations for The Home Depot and other service providers.}
-\resumeItem{Used \textbf{Jest} and \textbf{RSpec} to create unit tests with at least 80\% coverage on all PRs.}
+\resumeItem{Building full-stack features in \textbf{Ruby on Rails}, \textbf{TypeScript}, and \textbf{GraphQL} for a platform serving 80k+ businesses.}
+\resumeItem{Migrated \textbf{React islands} in \textbf{Rails} views to a \textbf{React SPA}, improving maintainability and developer velocity.}
+\resumeItem{Optimized \textbf{Searchkick} reindexing for Home Depot integration (4M+ products, 2,000+ stores).}
+\resumeItem{Researched indexing strategies, implemented parallel reindexing via \textbf{Sidekiq}, and tuned batch sizes.}
+\resumeItem{Enforced 80\%+ test coverage on all PRs using \textbf{Jest} and \textbf{RSpec}, maintaining codebase reliability.}
 \resumeItemListEnd
 
 \resumeSubheading
 {Activision}{May 2024 -- May 2025}
 {Software Developer Intern}{Vancouver, BC}
 \resumeItemListStart
-\resumeItem{Developed core UI components for \textbf{Call of Duty: Black Ops 6} using \textbf{React/JavaScript} based on \textbf{Figma} mockups provided by the design team, serving millions of users.}
-\resumeItem{Designed and implemented a discord integration using \textbf{Java} with \textbf{Discord4J} to provide player stats on-demand.}
-\resumeItem{Optimized page rendering performance through memoization and CDN caching of player assets.}
-\resumeItem{Wrote unit tests and snapshot tests for UI components using \textbf{Jest}, ensuring reliability and quality.}
-% \resumeItem{Created dashboard interfaces \textbf{TypeScript}, \textbf{Next.js} and \textbf{React Native} as part of a weekly book club.}
+\resumeItem{Built \textbf{Call of Duty: Black Ops 6} leaderboard UI running in an in-game browser, a stripped-down \textbf{React} runtime on PS5/Xbox constrained by leftover game memory, requiring strict optimization to prevent crashes.}
+\resumeItem{Engineered performant components under hardware memory limits using memoization, lazy loading, and CDN caching of player assets to minimize runtime footprint.}
+\resumeItem{Designed and shipped a Discord bot using \textbf{Java/Discord4J} providing real-time player stats to the community.}
+\resumeItem{Maintained code quality with \textbf{Jest} unit and snapshot tests across all UI components.}
 \resumeItemListEnd
 
 \resumeSubheading
 {Freelance}{May 2023 -- May 2024}
 {Full-Stack Developer}{Remote}
 \resumeItemListStart
-\resumeItem{Developed an e-commerce platform for an \textbf{8,000+ player community} using  \textbf{SvelteKit}, \textbf{Go}, and \textbf{PostgreSQL}. \href{https://shop.vanquished.gg}{LINK}}
-\resumeItem{Integrated \textbf{Stripe} for secure payment processing and \textbf{Discord OAuth} for seamless user authentication.}
-\resumeItem{Designed a virtual currency system and shop interface with real-time purchase notifications and delivery tracking.}
-\resumeItem{Delivered a responsive mobile-friendly UI with \textbf{Tailwind CSS}, ensuring a smooth user experience across devices.}
+\resumeItem{Built an e-commerce platform (\href{https://shop.vanquished.gg}{shop.vanquished.gg}) for \textbf{8,000+ users} using \textbf{SvelteKit}, \textbf{Go}, and \textbf{PostgreSQL}.}
+\resumeItem{Integrated \textbf{Stripe} payments and \textbf{Discord OAuth} for virtual currency system with real-time purchase tracking.}
+\resumeItem{Delivered responsive UI with \textbf{Tailwind CSS}; handled full product lifecycle from design to deployment.}
 \resumeItemListEnd
 
 % \resumeSubheading
@@ -188,27 +187,24 @@
 \resumeProjectHeading
 {\textbf{Gazprea Compiler} $|$ \emph{C++, LLVM, MLIR, ANTLR4} $|$ \href{https://cmput415.github.io/415-docs/gazprea/}{Specs}}{}
 \resumeItemListStart
-\resumeItem{Developed a compiler for a general-purpose language, generating \textbf{LLVM IR} using \textbf{MLIR} and supporting features like function calls, loops, conditionals, and 2D arrays.}
-\resumeItem{Implemented a lexer and parser using \textbf{ANTLR4}, generating a custom heterogeneous \textbf{Abstract Syntax Tree (AST)}.}
-\resumeItem{Wrote \textbf{unit tests} for every feature, ensuring comprehensive coverage and reliability, testing against a competitive suite of \textbf{600+ test cases}, ensuring quality and correctness.}
-\resumeItem{Configured \textbf{CI/CD} pipelines using GitHub Actions to automate compilation and testing workflows.}
+\resumeItem{Built a full compiler from scratch: lexer/parser (\textbf{ANTLR4}), type system, semantic analysis, and code generation targeting \textbf{LLVM IR} via \textbf{MLIR}.}
+\resumeItem{Implemented language features including functions, loops, conditionals, type inference, and 2D array operations.}
+\resumeItem{Passed \textbf{600+ competitive test cases} with comprehensive unit testing; automated builds via \textbf{GitHub Actions CI/CD}.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{\textbf{Prize Bot V2} $|$ \emph{Go, Postgres, AWS} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{Github Link}} {}
+{\textbf{Prize Bot} $|$ \emph{Go, PostgreSQL, AWS, Stripe} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{GitHub}} {}
 \resumeItemListStart
-\resumeItem{Developed a Discord bot in Go for community events; \textbf{active on 1000+ servers, tracking 440,000+ users.}}
-\resumeItem{Implemented a ticketing system for prize management and utilized AWS RDS for data storage.}
-\resumeItem{Integrated Stripe API for a premium subscription with Discord benefits.}
+\resumeItem{Built and scaled a \textbf{Go} Discord bot to \textbf{1,000+ servers} and \textbf{440,000+ users}—handling concurrent events and prize distribution.}
+\resumeItem{Integrated \textbf{Stripe} for subscription billing and \textbf{AWS RDS (PostgreSQL)} for persistent data storage.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{\textbf{Rust Poker Game} $|$ \emph{Rust, PostgreSQL}}{}
+{\textbf{Multiplayer Poker Engine} $|$ \emph{Rust, Rocket, PostgreSQL}}{}
 \resumeItemListStart
-\resumeItem{Developed a multiplayer poker game in \textbf{Rust} that can be played with both cli, or networked connection to clients.}
-\resumeItem{Supports multiple game modes, including Texas Hold'em, 5 card draw, and other gamemodes.}
-\resumeItem{Implemented \textbf{PostgreSQL} database to store user data and game history.}
-\resumeItem{Utilized \textbf{Rocket} for the backend server allowing asynchronous connections to run multiple games at once.}
+\resumeItem{Engineered a networked multiplayer poker server in \textbf{Rust} with async game loops via \textbf{Rocket}, supporting concurrent sessions.}
+\resumeItem{Implemented multiple game modes (Texas Hold'em, 5-card draw) with both CLI and networked client support.}
+\resumeItem{Persisted user accounts and game history in \textbf{PostgreSQL} with efficient query patterns.}
 \resumeItemListEnd
 
 % \resumeProjectHeading
@@ -226,10 +222,10 @@
 \begin{itemize}[leftmargin=0.15in, label={}]
     \small{
     \item{
-        \textbf{Languages}{: Golang, Python, C, C++, JavaScript, TypeScript, Rust, Java, HTML/CSS, SQL, RISC-V/ARM/X86} \\
-        \textbf{Frameworks/Libraries}{: SvelteKit, React, React Native, Next.js, Tailwind, HTMX, Flutter, ANTLR4, NPM/Bun, Node.js} \\
-        \textbf{Relevant Coursework}{:  Compiler Design, Parallel \& Distributed Systems, 2D Game Engine Design, Network Security, AI \& Machine Learning, Computer Architecture and Assembly, Databases, Reinforcement Learning, Operating Systems.} \\
-        \textbf{Tools}{: Git, Docker, CI/CD, AWS, PostgreSQL, SQLite3, Firebase, Android Studio, UNIX/Linux}
+        \textbf{Languages}{: Go, Rust, TypeScript, C/C++, Python, Java, JavaScript, SQL, Ruby, RISC-V/ARM/x86 Assembly} \\
+        \textbf{Frameworks}{: React, Rails, SvelteKit, Next.js, Rocket, Tailwind, React Native, HTMX, Node.js, LLVM/MLIR} \\
+        \textbf{Infrastructure}{: AWS (RDS, EC2), PostgreSQL, Docker, Git, GitHub Actions CI/CD, Linux, Firebase, Stripe API} \\
+        \textbf{Relevant Coursework}{: Compiler Design, Parallel \& Distributed Systems, 2D Game Engine Design, Network Security, AI \& Machine Learning, Computer Architecture, Databases, Reinforcement Learning, Operating Systems}
     }}
 \end{itemize}
 
