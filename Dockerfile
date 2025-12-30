@@ -1,8 +1,5 @@
-# Use the official Go 1.23 Alpine image
-FROM golang:1.23-alpine
-
-# Install MuPDF and build dependencies for go-fitz
-RUN apk add --no-cache mupdf-dev gcc musl-dev
+# Use Debian-based image for glibc compatibility
+FROM golang:1.23-bookworm
 
 # Set the working directory inside the container
 WORKDIR /app

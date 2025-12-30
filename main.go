@@ -21,7 +21,7 @@ func init() {
 	}
 	defer doc.Close()
 
-	img, err := doc.Image(0) // First page
+	img, err := doc.Image(0)
 	if err != nil {
 		log.Printf("Warning: Failed to render PDF: %v", err)
 		return
