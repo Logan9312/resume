@@ -1,3 +1,5 @@
-# resume
+# Resume
 
-[Resume Link](resume.pdf)
+![Resume](resume.png)
+
+[Download PDF](resume.pdf)
