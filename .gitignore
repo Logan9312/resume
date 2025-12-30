@@ -317,3 +317,4 @@ __latexindent_temp_resume.tex
 
 # Rust
 /target/
+.claude/
