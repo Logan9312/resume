@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -23,6 +24,23 @@ func main() {
 
 	app.Get("/png", func(c *fiber.Ctx) error {
 		return c.SendFile("./resume.png")
+	})
+
+	app.Get("/anonymized", func(c *fiber.Ctx) error {
+		resume, err := os.ReadFile("./resume.tex")
+		if err != nil {
+			return fiber.NewError(fiber.StatusInternalServerError, "could not read resume source")
+		}
+
+		replacer := strings.NewReplacer(
+			"Logan Travis", "Anonymous Candidate",
+			"Edmonton, Alberta", "",
+			"Edmonton, AB", "",
+			"Vancouver, BC", "",
+		)
+
+		c.Type("text/plain", "utf-8")
+		return c.SendString(replacer.Replace(string(resume)))
 	})
 
 	port := os.Getenv("PORT")
