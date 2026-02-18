@@ -1,13 +1,38 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
+	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )
+
+func resolveAssetPath(name string) (string, error) {
+	candidates := []string{filepath.Join(".", name)}
+
+	if exePath, err := os.Executable(); err == nil {
+		exeDir := filepath.Dir(exePath)
+		candidates = append(candidates, filepath.Join(exeDir, name))
+	}
+
+	if _, sourceFile, _, ok := runtime.Caller(0); ok {
+		sourceDir := filepath.Dir(sourceFile)
+		candidates = append(candidates, filepath.Join(sourceDir, name))
+	}
+
+	for _, candidate := range candidates {
+		if _, err := os.Stat(candidate); err == nil {
+			return candidate, nil
+		}
+	}
+
+	return "", fmt.Errorf("asset %q not found", name)
+}
 
 func main() {
 	app := fiber.New()
@@ -19,15 +44,30 @@ func main() {
 	}))
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendFile("./resume.pdf")
+		resumePath, err := resolveAssetPath("resume.pdf")
+		if err != nil {
+			return fiber.NewError(fiber.StatusInternalServerError, "could not read resume PDF")
+		}
+
+		return c.SendFile(resumePath)
 	})
 
 	app.Get("/png", func(c *fiber.Ctx) error {
-		return c.SendFile("./resume.png")
+		resumePath, err := resolveAssetPath("resume.png")
+		if err != nil {
+			return fiber.NewError(fiber.StatusInternalServerError, "could not read resume image")
+		}
+
+		return c.SendFile(resumePath)
 	})
 
 	app.Get("/anonymized", func(c *fiber.Ctx) error {
-		resume, err := os.ReadFile("./resume.tex")
+		resumeTexPath, err := resolveAssetPath("resume.tex")
+		if err != nil {
+			return fiber.NewError(fiber.StatusInternalServerError, "could not read resume source")
+		}
+
+		resume, err := os.ReadFile(resumeTexPath)
 		if err != nil {
 			return fiber.NewError(fiber.StatusInternalServerError, "could not read resume source")
 		}
