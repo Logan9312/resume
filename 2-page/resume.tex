@@ -135,7 +135,8 @@
 \resumeSubHeadingListStart
 \resumeSubheading
 {University of Alberta}{Edmonton, Alberta}
-{Bachelor of Science in Computer Science}{September 2020 - December 2025}
+{Bachelor of Science in Computer Science with Specialization}{September 2020 - December 2025}
+\item \small{\textbf{Relevant Coursework}{: Compiler Design, Parallel \& Distributed Systems, 2D Game Engine Design, Network Security, Embedded \& Robotic Systems, Computer Architecture, Databases, Reinforcement Learning, Operating Systems, Competitive Programming \& Algorithm Design, Machine Learning \& AI}}
 \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
@@ -144,13 +145,15 @@
 
 \resumeSubheading
 {Jobber}{May 2025 -- Present}
-{Software Engineer Intern}{Edmonton, AB}
+{Software Engineer}{Edmonton, AB}
 \resumeItemListStart
 \resumeItem{Building full-stack features in \textbf{Ruby on Rails}, \textbf{TypeScript}, and \textbf{GraphQL} for a platform serving 100k+ businesses.}
 \resumeItem{Migrated \textbf{React islands} in \textbf{Rails} views to a \textbf{React SPA}, improving maintainability and developer velocity.}
-\resumeItem{Optimized \textbf{Searchkick} reindexing for The Home Depot integration (4M+ products at 2,000+ stores).}
+\resumeItem{Optimized \textbf{Searchkick} reindexing for integration with \textbf{The Home Depot} (4M+ products at 2,000+ stores).}
 \resumeItem{Researched indexing strategies via \textbf{Sidekiq} dropping reindexing time from over 6 hours to 45 minutes.}
 \resumeItem{Implemented cross-team refactors across quotes, scheduling, and other external domains, coordinating with stakeholders on technical approach within a large monolith.}
+\resumeItem{Prototyped and added \textbf{Apollo} caching with useFragment hooks to get around technical limitations with asynchronous GraphQL queries, allowing hydration of data from third party API application after initial payload.}
+
 \resumeItemListEnd
 
 \resumeSubheading
@@ -158,9 +161,12 @@
 {Software Developer Intern}{Vancouver, BC}
 \resumeItemListStart
 \resumeItem{Built \textbf{Call of Duty: Black Ops 6} leaderboard UI running in an in-game browser, a stripped-down \textbf{React} runtime on PS5/Xbox constrained by leftover game memory, requiring strict optimization to prevent crashes.}
-\resumeItem{Engineered performant components under hardware memory limits using memoization, lazy loading, and CDN caching of player assets to minimize runtime footprint.}
-\resumeItem{Designed and shipped a Discord bot using \textbf{Java/Discord4J} providing real-time player stats to the community.}
-\resumeItem{Maintained code quality with \textbf{Jest} unit and snapshot tests across all UI components.}
+\resumeItem{Engineered performant components for in game leaderboards and combat record under hardware memory limits using memoization, lazy loading, and CDN caching of player assets to minimize runtime footprint.}
+\resumeItem{Designed and shipped a Discord bot from scratch using \textbf{Java/Discord4J} as an intern-only project providing real-time player stats to the community. Involved rate-limiting and scaling shards for a server with over \textbf{650k users}, and prototyping \textbf{distributed sharding configurations}.}
+\resumeItem{Maintained code quality with \textbf{Jest} unit testing and snapshot tests across all UI components improving confidence in complex refactors for localization text.}
+\resumeItem{Refactored legacy code from \textbf{Modern Warfare 3} to improve maintainability and performance.}
+\resumeItem{Solely owned multiple features including the \textbf{Top 250 Leaderboards} and \textbf{Cod League Hub} for ranked play.}
+
 \resumeItemListEnd
 
 \resumeSubheading
@@ -169,14 +175,20 @@
 \resumeItemListStart
 \resumeItem{Built an e-commerce platform (\href{https://shop.vanquished.gg}{shop.vanquished.gg}) for \textbf{8,000+ users} using \textbf{SvelteKit}, \textbf{Go}, and \textbf{PostgreSQL}.}
 \resumeItem{Integrated \textbf{Stripe} payments and \textbf{Discord OAuth} for virtual currency system with real-time purchase tracking.}
+\resumeItem{Developed one-off applications for multiple clients using \textbf{Go} and \textbf{PostgreSQL} with auth and payment integrations.}
+\resumeItem{Refactored legacy \textbf{python} projects for clients to improve stability and performance, and resolve memory leaks.}
 \resumeItemListEnd
 
-% \resumeSubheading
-% {Alberta Chambers of Commerce}{October 2021 - May 2024}
-% {Chamber Platform Coordinator}{Remote}
-% \resumeItemListStart
-% \resumeItem{Coordinated the onboarding of businesses across Alberta to a CRM platform and online marketplace.}
-% \resumeItemListEnd
+\resumeSubheading
+{Alberta Chambers of Commerce}{October 2021 - May 2024}
+{eCommerce Process Engineer Intern}{Edmonton, AB}
+\resumeItemListStart
+\resumeItem{Brought on as a summer intern, and continued to work as chamber platform coordinator in charge of the Shop Local Chamber Market, and a CRM platform for local Chambers of Commerce in Alberta.}
+\resumeItem{Developed automation scripts for survey aggregation with \textbf{Go}, collecting data from province-wide responses.}
+\resumeItem{Worked with developers to beta test platform features and provide feedback from business owners.}
+\resumeItem{Supported the onboarding and technical support of businesses across Alberta to a CRM platform and online marketplace.}
+\resumeItemListEnd
+
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
@@ -188,13 +200,15 @@
 \resumeItemListStart
 \resumeItem{Built a full compiler from scratch: lexer/parser (\textbf{ANTLR4}), and code generation targeting \textbf{LLVM IR} via \textbf{MLIR}.}
 \resumeItem{Implemented language features including functions, loops, conditionals, type inference, and 2D array operations.}
+\resumeItem{Setup self-hosted github actions to run hundreds of tests in parallel for benchmarking and feature coverage.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{\textbf{Prize Bot} $|$ \emph{Go, PostgreSQL, AWS, Stripe} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{GitHub}} {}
+{\textbf{Prize Bot} $|$ \emph{Go, PostgreSQL, AWS, Stripe, SvelteKit} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{GitHub} $|$ \href{https://www.prizebot.dev/}{Website}} {}
 \resumeItemListStart
-\resumeItem{Built and scaled a \textbf{Go} Discord bot to \textbf{1,000+ servers} and \textbf{380,000+ users} handling events and prize distribution.}
+\resumeItem{Built and scaled a \textbf{Go} Discord bot to track \textbf{1,000+ servers} and \textbf{380,000+ users} handling auction and giveaway events and prize distribution through automated ticket system.}
 \resumeItem{Integrated \textbf{Stripe} for subscription billing and \textbf{PostgreSQL} for persistent data storage.}
+\resumeItem{Implemented \textbf{SvelteKit} frontend with support for all existing bot configurations, and new advanced options.}
 \resumeItemListEnd
 
 \resumeProjectHeading
@@ -209,23 +223,30 @@
 {\textbf{Multiplayer Poker Engine} $|$ \emph{Rust, SvelteKit, PostgreSQL} $|$ \href{https://therustykrab.xyz}{Website}} {}
 \resumeItemListStart
 \resumeItem{Engineered a networked multiplayer poker server in \textbf{Rust} with async game loops via \textbf{Rocket} with \textbf{mongodb}.}
-\resumeItem{Implemented multiple poker variants in a \textbf{SvelteKit} frontend with real-time websocket communication.}
+\resumeItem{Implemented multiple poker variants in a \textbf{SvelteKit} frontend with real-time \textbf{websocket} communication.}
 \resumeItemListEnd
 
 \resumeProjectHeading
 {\textbf{Rust Arduino Game} $|$ \emph{Rust, Arduino}}{}
 \resumeItemListStart
 \resumeItem{A 2D two player game in \textbf{Rust} using \textbf{Arduino} with a physical breadboard controller.}
-\resumeItem{Used \textbf{Bevy Engine} for game logic frontend, communicating through websockets.}
+\resumeItem{Used \textbf{Bevy Engine} for game logic frontend, communicating through websockets from the Rust backend.}
 \resumeItemListEnd
 
-% \resumeProjectHeading
-% {\textbf{ScanPal} $|$ \emph{Java, Android Studio, Firebase} $|$ \href{https://www.youtube.com/watch?v=dmA5Nl-ztyk}{Demo}}{}
-% \resumeItemListStart
-% \resumeItem{Built an Android app for event management, enabling real-time attendance tracking and push notifications.}
-% \resumeItem{Designed an interface for seamless communication between the Android client and \textbf{Firebase} backend.}
-% \resumeItem{Implemented \textbf{CI/CD} pipelines using GitHub Actions, ensuring code quality and automated testing.}
-% \resumeItemListEnd
+\resumeProjectHeading
+{\textbf{ServerSearch} $|$ \emph{Go, PostgreSQL, NextJS, React} $|$ \href{https://serversearch.xyz/}{Website}}{}
+\resumeItemListStart
+\resumeItem{An advertisement platform for gameservers developed with \textbf{Go}, \textbf{PostgreSQL}, and \textbf{NextJS}.}
+\resumeItem{Supports organizational level user configuration and role heirarchy with authentication via \textbf{Discord OAuth}.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{ScanPal} $|$ \emph{Java, Android Studio, Firebase} $|$ \href{https://www.youtube.com/watch?v=dmA5Nl-ztyk}{Demo}}{}
+\resumeItemListStart
+\resumeItem{Built an Android app for event management, enabling real-time attendance tracking and push notifications.}
+\resumeItem{Designed an interface for seamless communication between the Android client and \textbf{Firebase} backend.}
+\resumeItem{Implemented \textbf{CI/CD} pipelines using GitHub Actions, ensuring code quality and automated testing.}
+\resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
@@ -235,8 +256,7 @@
     \small{
     \item{
         \textbf{Languages}{: Go, Rust, TypeScript, C/C++, Python, Java, JavaScript, Ruby, RISC-V/ARM/x86 Assembly, SQL,} \\
-        \textbf{Frameworks}{: React, Rails, SvelteKit, Next.js, Rocket, Tailwind, React Native, HTMX, Node.js, LLVM/MLIR} \\
-        \textbf{Relevant Coursework}{: Compiler Design, Parallel \& Distributed Systems, 2D Game Engine Design, Network Security, Embedded \& Robotic Systems, Computer Architecture, Databases, Reinforcement Learning, Operating Systems}
+        \textbf{Frameworks}{: React, Rails, SvelteKit, Next.js, Rocket, Tailwind, React Native, HTMX, Node.js, LLVM/MLIR}
     }}
 \end{itemize}
 
