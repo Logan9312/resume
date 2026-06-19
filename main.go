@@ -18,7 +18,15 @@ func main() {
 	}))
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendFile("./resume.pdf")
+		return sendPDF(c, "./resume.pdf", "resume.pdf")
+	})
+
+	app.Get("/resume.pdf", func(c *fiber.Ctx) error {
+		return sendPDF(c, "./resume.pdf", "resume.pdf")
+	})
+
+	app.Get("/resume-2-page.pdf", func(c *fiber.Ctx) error {
+		return sendPDF(c, "./2-page/resume.pdf", "resume-2-page.pdf")
 	})
 
 	app.Get("/png", func(c *fiber.Ctx) error {
@@ -32,4 +40,14 @@ func main() {
 
 	log.Printf("Listening on :%s", port)
 	log.Fatal(app.Listen(":" + port))
+}
+
+func sendPDF(c *fiber.Ctx, path string, filename string) error {
+	c.Set("Cache-Control", "no-store, max-age=0")
+	c.Set("Content-Disposition", `inline; filename="`+filename+`"`)
+	c.Set("Content-Type", "application/pdf")
+	c.Set("Expires", "0")
+	c.Set("Pragma", "no-cache")
+
+	return c.SendFile(path)
 }
