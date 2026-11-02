@@ -151,13 +151,11 @@
 {Software Engineer}{Edmonton, AB}
 {Converted from Software Engineer Intern in May 2026.}
 \resumeItemListStart
-\resumeItem{Built the initial catalog search and GraphQL APIs for The Home Depot integration, covering \textbf{4M+ products} across \textbf{2,000+ stores}. Added local store prices to quotes and templates.}
+\resumeItem{Built catalog search and quoting features in Rails, React, and GraphQL for The Home Depot integration, covering \textbf{4M+ products} across \textbf{2,000+ stores}.}
 \resumeItem{Helped cut catalog reindexing from \textbf{6+ hours to 45 minutes} with parallel Sidekiq jobs.}
-\resumeItem{Added pricing from connected supplier accounts to catalog search and quotes. Batched and cached API requests to avoid repeat lookups, with fallback prices when requests failed.}
-\resumeItem{Designed support for multiple suppliers and separated search indexes, imports, and reindexing by catalog. Built tools to migrate catalog data and roll back search index changes.}
-\resumeItem{Built Pricebooks models for services made up of materials and labour. Kept saved component prices separate from later updates.}
-\resumeItem{Coordinated GraphQL changes across backend, web, and mobile clients, adding replacement fields before removing old ones.}
-\resumeItem{Allowed pages to render while a supplier pricing check ran. The check could take about five seconds.}
+\resumeItem{Designed and built the supplier pricing service and React UI so customers could use their account-specific supplier prices across catalog search and quotes.}
+\resumeItem{Designed Supply's backend and frontend architecture for multiple suppliers, covering catalogs, account connections, and pricing. Implemented catalog isolation and database migrations.}
+\resumeItem{Built Pricebooks' data models and GraphQL APIs for reusable materials, labour, and services, including supplier catalog synchronization.}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -167,7 +165,6 @@
 \resumeItem{Owned the \textbf{Top 250 Leaderboards} and \textbf{CoD League Hub} for ranked play in Call of Duty: Black Ops 6.}
 \resumeItem{Built React leaderboard and combat-record UI for PS5 and Xbox under tight memory limits, using memoization, lazy loading, and CDN caching.}
 \resumeItem{Shipped a Java/Discord4J player-stats bot for a \textbf{650k+ user} community, with rate limiting and shard scaling.}
-\resumeItem{Refactored Modern Warfare 3 code and tested UI and localization changes with Jest unit and snapshot tests.}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -176,7 +173,6 @@
 \resumeItemListStart
 \resumeItem{Built the e-commerce site \href{https://shop.vanquished.gg}{shop.vanquished.gg} for \textbf{8,000+ users} using SvelteKit, Go, and PostgreSQL.}
 \resumeItem{Added Stripe payments and Discord OAuth login, with real-time tracking of virtual currency purchases.}
-\resumeItem{Fixed memory leaks in clients' Python applications.}
 \resumeItemListEnd
 
 \resumeSubheading
