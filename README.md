@@ -1,5 +1,7 @@
 # Resume
 
-![Resume](resume.png)
+[Two-page resume (primary)](2-page/resume.pdf) · [One-page resume](resume.pdf)
 
-<p align="center"><a href="resume.pdf">View Resume PDF</a></p>
+One-page preview:
+
+[![One-page resume](resume.png)](resume.pdf)

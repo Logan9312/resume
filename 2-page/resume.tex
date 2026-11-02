@@ -20,7 +20,6 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\input{glyphtounicode}
 \usepackage{fontawesome}
 \usepackage{svg}
 
@@ -68,8 +67,11 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+% Ensure pdfLaTeX output is machine readable; XeTeX provides Unicode maps natively.
+\ifdefined\pdfgentounicode
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
 
 %-------------------------
 % Custom commands
@@ -85,6 +87,16 @@
   \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & #2 \\
     \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubheadingWithNote}[5]{
+  \vspace{-2pt}
+\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+    \multicolumn{2}{l}{\small #5} \\
   \end{tabular*}\vspace{-7pt}
 }
 
@@ -130,124 +142,51 @@
   \href{https://ltravis.ca/}{\underline{Portfolio}}
 \end{center}
 
-%-----------EDUCATION-----------
-\section{Education}
-\resumeSubHeadingListStart
-\resumeSubheading
-{University of Alberta}{Edmonton, Alberta}
-{Bachelor of Science in Computer Science with Specialization}{September 2020 - December 2025}
-\resumeSubHeadingListEnd
-
 %-----------EXPERIENCE-----------
 \section{Experience}
 \resumeSubHeadingListStart
 
-\resumeSubheading
-{Jobber}{May 2025 - Present}
+\resumeSubheadingWithNote
+{Jobber}{May 2025 -- Present}
 {Software Engineer}{Edmonton, AB}
+{Converted from Software Engineer Intern in May 2026.}
 \resumeItemListStart
-\resumeItem{Building full-stack features in \textbf{Ruby on Rails}, \textbf{TypeScript}, and \textbf{GraphQL} for a platform serving 100k+ businesses.}
-\resumeItem{Optimized \textbf{Searchkick} reindexing for integration with \textbf{The Home Depot} (4M+ products at 2,000+ stores).}
-\resumeItem{Reduced reindexing time from over 6 hours to 45 minutes by using parallel indexing strategies via \textbf{Sidekiq}.}
-\resumeItem{Migrated \textbf{React islands} in \textbf{Rails} views to a \textbf{React SPA}, improving maintainability and developer velocity.}
-\resumeItem{Implemented cross-team refactors across quotes, scheduling, and other external domains, coordinating with stakeholders on technical approach within a large monolith.}
-\resumeItem{Prototyped and added \textbf{Apollo} caching with useFragment hooks to get around technical limitations with asynchronous GraphQL queries, allowing hydration of data from third party API application after initial payload.}
-
+\resumeItem{Built the initial catalog search and GraphQL APIs for The Home Depot integration, covering \textbf{4M+ products} across \textbf{2,000+ stores}. Added local store prices to quotes and templates.}
+\resumeItem{Helped cut catalog reindexing from \textbf{6+ hours to 45 minutes} with parallel Sidekiq jobs.}
+\resumeItem{Added pricing from connected supplier accounts to catalog search and quotes. Batched and cached API requests to avoid repeat lookups, with fallback prices when requests failed.}
+\resumeItem{Designed support for multiple suppliers and separated search indexes, imports, and reindexing by catalog. Built tools to migrate catalog data and roll back search index changes.}
+\resumeItem{Built Pricebooks models for services made up of materials and labour. Kept saved component prices separate from later updates.}
+\resumeItem{Coordinated GraphQL changes across backend, web, and mobile clients, adding replacement fields before removing old ones.}
+\resumeItem{Allowed pages to render while a supplier pricing check ran. The check could take about five seconds.}
 \resumeItemListEnd
 
 \resumeSubheading
-{Activision}{May 2024 - May 2025}
+{Activision}{May 2024 -- May 2025}
 {Software Developer Intern}{Vancouver, BC}
 \resumeItemListStart
-\resumeItem{Built \textbf{Call of Duty: Black Ops 6} leaderboard UI running in an in-game browser, a stripped-down \textbf{React} runtime on PS5/Xbox constrained by leftover game memory, requiring strict optimization to prevent crashes.}
-\resumeItem{Engineered performant components for in-game leaderboards and combat record under hardware memory limits using memoization, lazy loading, CDN asset caching, and \textbf{Jenkins} workflows for asset and test-build deploys.}
-\resumeItem{Designed and shipped a Discord bot from scratch using \textbf{Java/Discord4J} as an intern-only project providing real-time player stats to the community. Involved rate-limiting and scaling shards for a server with over \textbf{650k users}, and prototyping \textbf{distributed sharding configurations}.}
-\resumeItem{Refactored legacy code from \textbf{Modern Warfare 3} to improve maintainability and performance.}
-\resumeItem{Maintained code quality with \textbf{Jest} unit testing and snapshot tests across all UI components improving confidence in complex refactors for localization text.}
-\resumeItem{Solely owned multiple features including the \textbf{Top 250 Leaderboards} and \textbf{Cod League Hub} for ranked play.}
-
+\resumeItem{Owned the \textbf{Top 250 Leaderboards} and \textbf{CoD League Hub} for ranked play in Call of Duty: Black Ops 6.}
+\resumeItem{Built React leaderboard and combat-record UI for PS5 and Xbox under tight memory limits, using memoization, lazy loading, and CDN caching.}
+\resumeItem{Shipped a Java/Discord4J player-stats bot for a \textbf{650k+ user} community, with rate limiting and shard scaling.}
+\resumeItem{Refactored Modern Warfare 3 code and tested UI and localization changes with Jest unit and snapshot tests.}
 \resumeItemListEnd
 
 \resumeSubheading
-{Freelance}{May 2023 - May 2024}
+{Freelance}{May 2023 -- May 2024}
 {Full-Stack Developer}{Remote}
 \resumeItemListStart
-\resumeItem{Built an e-commerce platform (\href{https://shop.vanquished.gg}{shop.vanquished.gg}) for \textbf{8,000+ users} using \textbf{SvelteKit}, \textbf{Go}, and \textbf{PostgreSQL}.}
-\resumeItem{Integrated \textbf{Stripe} payments and \textbf{Discord OAuth} for virtual currency system with real-time purchase tracking.}
-\resumeItem{Developed one-off applications for multiple clients using \textbf{Go} and \textbf{PostgreSQL} with auth and payment integrations.}
-\resumeItem{Refactored legacy \textbf{Python} projects for clients to improve stability and performance, and resolve memory leaks.}
+\resumeItem{Built the e-commerce site \href{https://shop.vanquished.gg}{shop.vanquished.gg} for \textbf{8,000+ users} using SvelteKit, Go, and PostgreSQL.}
+\resumeItem{Added Stripe payments and Discord OAuth login, with real-time tracking of virtual currency purchases.}
+\resumeItem{Fixed memory leaks in clients' Python applications.}
 \resumeItemListEnd
 
 \resumeSubheading
-{Alberta Chambers of Commerce}{October 2021 - May 2024}
+{Alberta Chambers of Commerce}{October 2021 -- May 2024}
 {Chamber Platform Coordinator}{Edmonton, AB}
 \resumeItemListStart
-\resumeItem{Supported the Shop Local Chamber Market and a CRM platform for local Chambers of Commerce in Alberta.}
-\resumeItem{Developed automation scripts for survey aggregation with \textbf{Go}, collecting data from province-wide responses.}
-\resumeItem{Worked with developers to beta test platform features and provide feedback from business owners.}
-\resumeItem{Supported the onboarding and technical support of businesses across Alberta to a CRM platform and online marketplace.}
+\resumeItem{Supported Alberta businesses and local chambers with onboarding and troubleshooting for the Shop Local Chamber Market and a CRM platform.}
+\resumeItem{Collected feedback from business owners and beta-tested platform updates with developers.}
+\resumeItem{Wrote Go scripts to aggregate province-wide survey responses.}
 \resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------
-\section{Projects}
-\resumeSubHeadingListStart
-
-\resumeProjectHeading
-{\textbf{Gazprea Compiler} $|$ \emph{C++, LLVM, MLIR, ANTLR4} $|$ \href{https://cmput415.github.io/415-docs/gazprea/}{Specs}}{}
-\resumeItemListStart
-\resumeItem{Built a full \textbf{C++} compiler from scratch: lexer/parser (\textbf{ANTLR4}), and code generation targeting \textbf{LLVM IR} via \textbf{MLIR}.}
-\resumeItem{Implemented compiler features including functions, loops, conditionals, type inference, and 2D array operations.}
-\resumeItem{Set up self-hosted \textbf{GitHub Actions} to run hundreds of tests in parallel for benchmarking and feature coverage.}
-\resumeItem{Developed a second smaller compiler from scratch targeting x86, ARM, and RISC-V assembly.}
-\resumeItemListEnd
-
-\resumeProjectHeading
-{\textbf{Prize Bot} $|$ \emph{Go, PostgreSQL, AWS, Stripe, SvelteKit} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{GitHub} $|$ \href{https://www.prizebot.dev/}{Website}} {}
-\resumeItemListStart
-\resumeItem{Built and scaled a \textbf{Go} Discord bot to track \textbf{1,000+ servers} and \textbf{380,000+ users} handling auction and giveaway events and prize distribution through automated ticket system.}
-\resumeItem{Integrated \textbf{Stripe} for subscription billing and \textbf{PostgreSQL} for persistent data storage.}
-\resumeItem{Implemented \textbf{SvelteKit} frontend with support for all existing bot configurations, and new advanced options.}
-\resumeItemListEnd
-
-\resumeProjectHeading
-{\textbf{2D Game Engine} $|$ \emph{C++, OpenGL, SFML}}{}
-\resumeItemListStart
-\resumeItem{Built a 2D game engine in \textbf{C++} using \textbf{SFML} and \textbf{OpenGL} shaders, designed around ECS architecture.}
-\resumeItem{Implemented a physics engine for 2D collisions, movement, gravity, and camera control with animated sprites.}
-\resumeItem{Set up self-hosted GitHub Actions to ensure C++ build system compiles consistently across multiple platforms.}
-\resumeItemListEnd
-
-\resumeProjectHeading
-{\textbf{Multiplayer Poker Engine} $|$ \emph{Rust, SvelteKit, PostgreSQL} $|$ \href{https://therustykrab.xyz}{Website}} {}
-\resumeItemListStart
-\resumeItem{Engineered a networked multiplayer poker server in \textbf{Rust} with async game loops via \textbf{Rocket} with \textbf{mongodb}.}
-\resumeItem{Implemented multiple poker variants in a \textbf{SvelteKit} frontend with real-time \textbf{websocket} communication.}
-\resumeItemListEnd
-
-\resumeProjectHeading
-{\textbf{Rust Arduino Game} $|$ \emph{Rust, Arduino}}{}
-\resumeItemListStart
-\resumeItem{A 2D two player game in \textbf{Rust} using \textbf{Arduino} with a physical breadboard controller.}
-\resumeItem{Used \textbf{Bevy Engine} for game logic frontend, communicating through websockets from the Rust backend.}
-\resumeItemListEnd
-
-\resumeProjectHeading
-{\textbf{ServerSearch} $|$ \emph{Go, PostgreSQL, Next.js, React} $|$ \href{https://serversearch.xyz/}{Website}}{}
-\resumeItemListStart
-\resumeItem{An advertisement platform for gameservers developed with \textbf{Go}, \textbf{PostgreSQL}, and \textbf{Next.js}.}
-\resumeItem{Supports organizational level user configuration and role hierarchy with authentication via \textbf{Discord OAuth}.}
-\resumeItemListEnd
-
-% \resumeProjectHeading
-% {\textbf{ScanPal} $|$ \emph{Java, Android Studio, Firebase} $|$ \href{https://www.youtube.com/watch?v=dmA5Nl-ztyk}{Demo}}{}
-% \resumeItemListStart
-% \resumeItem{Built an Android app for event management, enabling real-time attendance tracking and push notifications.}
-% \resumeItem{Designed an interface for seamless communication between the Android client and \textbf{Firebase} backend.}
-% \resumeItem{Implemented \textbf{CI/CD} pipelines using GitHub Actions, ensuring code quality and automated testing.}
-% \resumeItemListEnd
-
 \resumeSubHeadingListEnd
 
 %-----------PROGRAMMING SKILLS-----------
@@ -255,10 +194,83 @@
 \begin{itemize}[leftmargin=0.15in, label={}]
     \small{
     \item{
-        \textbf{Languages}{: C/C++, RISC-V/ARM/x86 Assembly, Go, Rust, TypeScript, Python, Java, JavaScript, Ruby, SQL} \\
-        \textbf{Frameworks \& Tools}{: LLVM/MLIR, ANTLR4, Jenkins, React, Rails, SvelteKit, Next.js, Rocket, Tailwind, React Native, HTMX, Node.js, GitHub Actions}
+        \textbf{Languages}{: Ruby, TypeScript, Go, Rust, C/C++, Python, Java, JavaScript, SQL, x86/ARM/RISC-V Assembly} \\
+        \textbf{Frameworks}{: Rails, React, GraphQL, Apollo, SvelteKit, Next.js, Node.js, LLVM/MLIR, ANTLR4} \\
+        \textbf{Data \& Tools}{: PostgreSQL, OpenSearch, Sidekiq, GitHub Actions, Jenkins, AWS}
     }}
 \end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{University of Alberta}{Edmonton, Alberta}
+{Bachelor of Science in Computer Science with Specialization}{September 2020 -- December 2025}
+\resumeSubHeadingListEnd
+
+% Keep the work history and qualifications together on page one.
+\newpage
+\begin{center}
+  \textbf{\large Logan Travis}
+\end{center}
+
+%-----------PROJECTS-----------
+\section{Projects}
+\begingroup
+\renewcommand{\resumeItem}[1]{\item\small{#1}}
+\renewcommand{\resumeItemListStart}{\begin{itemize}[itemsep=4pt, topsep=6pt, parsep=0pt]}
+\renewcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{Prize Bot} $|$ \emph{Go, PostgreSQL, AWS, Stripe, SvelteKit} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{GitHub} $|$ \href{https://www.prizebot.dev/}{Website}}{}
+\resumeItemListStart
+\resumeItem{Built a Go Discord bot used in \textbf{1,000+ servers} with \textbf{380,000+ users}. Added auctions, giveaways, and a ticket system for prize distribution.}
+\resumeItem{Built a SvelteKit dashboard for configuring the bot.}
+\resumeItem{Added Stripe subscription billing and stored bot data in PostgreSQL.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Gazprea Compiler} $|$ \emph{C++, LLVM, MLIR, ANTLR4} $|$ \href{https://cmput415.github.io/415-docs/gazprea/}{Specs}}{}
+\resumeItemListStart
+\resumeItem{Built a C++ compiler with ANTLR4 parsing and LLVM IR generation through MLIR.}
+\resumeItem{Implemented functions, loops, conditionals, type inference, and 2D array operations.}
+\resumeItem{Set up self-hosted GitHub Actions to run compiler tests in parallel.}
+\resumeItem{Built a second compiler targeting x86, ARM, and RISC-V assembly.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{2D Game Engine} $|$ \emph{C++, OpenGL, SFML}}{}
+\resumeItemListStart
+\resumeItem{Built a C++ engine with an entity-component-system architecture, SFML, and OpenGL shaders.}
+\resumeItem{Implemented collision physics, movement, gravity, camera controls, and animated sprites.}
+\resumeItem{Set up self-hosted GitHub Actions to verify builds across multiple platforms.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{ServerSearch} $|$ \emph{Go, PostgreSQL, Next.js, React} $|$ \href{https://serversearch.xyz/}{Website}}{}
+\resumeItemListStart
+\resumeItem{Built an advertising platform for game servers using Go, PostgreSQL, and Next.js.}
+\resumeItem{Implemented organization accounts and role permissions with Discord OAuth authentication.}
+\resumeItemListEnd
+
+% Database omitted here: the previous heading listed PostgreSQL, while its bullet named MongoDB.
+\resumeProjectHeading
+{\textbf{Multiplayer Poker Engine} $|$ \emph{Rust, Rocket, SvelteKit} $|$ \href{https://therustykrab.xyz}{Website}}{}
+\resumeItemListStart
+\resumeItem{Built a multiplayer poker server in Rust with asynchronous game loops using Rocket.}
+\resumeItem{Implemented multiple poker variants in SvelteKit with real-time WebSocket communication.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Rust Arduino Game} $|$ \emph{Rust, Arduino, Bevy}}{}
+\resumeItemListStart
+\resumeItem{Built a two-player 2D game in Rust with an Arduino and a physical breadboard controller.}
+\resumeItem{Used Bevy for game logic and display, with WebSocket communication to the Rust backend.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\endgroup
 
 %-----------COURSES-----------
 % \section{Relevant Courses}
