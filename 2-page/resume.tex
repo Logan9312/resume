@@ -151,9 +151,11 @@
 {Software Engineer}{Edmonton, AB}
 {Converted from Software Engineer Intern in May 2026.}
 \resumeItemListStart
-\resumeItem{Built catalog search and quoting features in Rails, React, and GraphQL for The Home Depot integration, covering \textbf{4M+ products} across \textbf{2,000+ stores}.}
+\resumeItem{Built catalog search and quoting features in Rails, React, TypeScript, and GraphQL for The Home Depot integration, covering \textbf{4M+ products} across \textbf{2,000+ stores}.}
 \resumeItem{Helped cut catalog reindexing from \textbf{6+ hours to 45 minutes} with parallel Sidekiq jobs.}
-\resumeItem{Designed and built the supplier pricing service and React UI so customers could use their account-specific supplier prices across catalog search and quotes.}
+\resumeItem{Designed and built the supplier pricing service and React UI for account-specific prices across search and quotes. Used Apollo caching and useFragment hooks to incorporate supplier pricing after the initial GraphQL response.}
+\resumeItem{Migrated React islands embedded in Rails views to a React single-page application.}
+\resumeItem{Implemented cross-team refactors across quotes, scheduling, and other domains in Jobber's monolith, coordinating the technical approach with other teams.}
 \resumeItem{Designed Supply's backend and frontend architecture for multiple suppliers, covering catalogs, account connections, and pricing. Implemented catalog isolation and database migrations.}
 \resumeItem{Built Pricebooks' data models and GraphQL APIs for reusable materials, labour, and services, including supplier catalog synchronization.}
 \resumeItemListEnd
@@ -163,8 +165,8 @@
 {Software Developer Intern}{Vancouver, BC}
 \resumeItemListStart
 \resumeItem{Owned the \textbf{Top 250 Leaderboards} and \textbf{CoD League Hub} for ranked play in Call of Duty: Black Ops 6.}
-\resumeItem{Built React leaderboard and combat-record UI for PS5 and Xbox under tight memory limits, using memoization, lazy loading, and CDN caching.}
-\resumeItem{Shipped a Java/Discord4J player-stats bot for a \textbf{650k+ user} community, with rate limiting and shard scaling.}
+\resumeItem{Built leaderboard and combat-record UI in a stripped-down React runtime inside the game's browser on PS5 and Xbox. Used memoization, lazy loading, and CDN caching to fit within memory left by the game.}
+\resumeItem{Designed, built, and shipped a Java/Discord4J player-stats bot from scratch for a \textbf{650k+ user} community, with rate limiting and shard scaling; prototyped distributed sharding.}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -173,6 +175,7 @@
 \resumeItemListStart
 \resumeItem{Built the e-commerce site \href{https://shop.vanquished.gg}{shop.vanquished.gg} for \textbf{8,000+ users} using SvelteKit, Go, and PostgreSQL.}
 \resumeItem{Added Stripe payments and Discord OAuth login, with real-time tracking of virtual currency purchases.}
+\resumeItem{Built Go and PostgreSQL applications for multiple clients with authentication and payment integrations.}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -191,8 +194,8 @@
     \small{
     \item{
         \textbf{Languages}{: Ruby, TypeScript, Go, Rust, C/C++, Python, Java, JavaScript, SQL, x86/ARM/RISC-V Assembly} \\
-        \textbf{Frameworks}{: Rails, React, GraphQL, Apollo, SvelteKit, Next.js, Node.js, LLVM/MLIR, ANTLR4} \\
-        \textbf{Data \& Tools}{: PostgreSQL, OpenSearch, Sidekiq, GitHub Actions, Jenkins, AWS}
+        \textbf{Frameworks}{: Rails, React, React Native, GraphQL, Apollo, SvelteKit, Next.js, Node.js, Rocket, Tailwind, HTMX, LLVM/MLIR, ANTLR4} \\
+        \textbf{Data \& Tools}{: PostgreSQL, OpenSearch, Sidekiq, GitHub Actions, Jenkins, Jest, AWS}
     }}
 \end{itemize}
 
@@ -221,7 +224,7 @@
 \resumeProjectHeading
 {\textbf{Prize Bot} $|$ \emph{Go, PostgreSQL, AWS, Stripe, SvelteKit} $|$ \href{https://github.com/Logan9312/Prize-Bot-V1}{GitHub} $|$ \href{https://www.prizebot.dev/}{Website}}{}
 \resumeItemListStart
-\resumeItem{Built a Go Discord bot used in \textbf{1,000+ servers} with \textbf{380,000+ users}. Added auctions, giveaways, and a ticket system for prize distribution.}
+\resumeItem{Built and scaled a Go Discord bot to \textbf{1,000+ servers} and \textbf{380,000+ users}, with auctions, giveaways, and automated tickets for prize distribution.}
 \resumeItem{Built a SvelteKit dashboard for configuring the bot.}
 \resumeItem{Added Stripe subscription billing and stored bot data in PostgreSQL.}
 \resumeItemListEnd
@@ -229,9 +232,9 @@
 \resumeProjectHeading
 {\textbf{Gazprea Compiler} $|$ \emph{C++, LLVM, MLIR, ANTLR4} $|$ \href{https://cmput415.github.io/415-docs/gazprea/}{Specs}}{}
 \resumeItemListStart
-\resumeItem{Built a C++ compiler with ANTLR4 parsing and LLVM IR generation through MLIR.}
+\resumeItem{Built a C++ compiler from scratch with ANTLR4 parsing and LLVM IR generation through MLIR.}
 \resumeItem{Implemented functions, loops, conditionals, type inference, and 2D array operations.}
-\resumeItem{Set up self-hosted GitHub Actions to run compiler tests in parallel.}
+\resumeItem{Set up self-hosted GitHub Actions to run hundreds of compiler tests in parallel for benchmarking and feature coverage.}
 \resumeItem{Built a second compiler targeting x86, ARM, and RISC-V assembly.}
 \resumeItemListEnd
 
