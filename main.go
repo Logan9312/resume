@@ -29,6 +29,10 @@ func main() {
 		return sendPDF(c, "./2-page/resume.pdf", "resume-2-page.pdf")
 	})
 
+	app.Get("/2-page", func(c *fiber.Ctx) error {
+		return sendPDF(c, "./2-page/resume.pdf", "resume-2-page.pdf")
+	})
+
 	app.Get("/png", func(c *fiber.Ctx) error {
 		return c.SendFile("./resume.png")
 	})
